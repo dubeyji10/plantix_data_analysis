@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<style>
+    @media (max-width: 500px) {
+        #B2 {
+            display: block;
+            text-align: center;
+            background-color: azure;
+            font-size: larger;
+        }
+
+        #chart_div {
+            background-color: aliceblue;
+            width: 500px;
+            height: 350px;
+            padding-bottom: 50px;
+        }
+    }
+
+    #chart_div {
+        left: auto;
+        min-width: 1000px;
+        min-height: 700px;
+        padding-bottom: 50px;
+
+    }
+
+    #B2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: #adff7a;
+        font-size: larger;
+    }
+    #chart_div2{
+        min-width: 1000px;
+        min-height: 700px;
+        padding-bottom: 50px;
+        background-color: aqua;
+    }
+</style>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantix Report</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="module" src="index.js"></script>
+</head>
+
+<body>
+
+    <div id="B2">
+        <h1>Data is hosted in JSON format</h1>
+        Analysis of plantix data - user login , sales items , sales orders
+        <br> This is an interactive graph drag right to zoom , drag left to zoom out and right click to reset zoom
+    </div>
+    <div id="chart_div"></div>
+    <div id="chart_div2"></div>
+
+</body>
+
+</html>
