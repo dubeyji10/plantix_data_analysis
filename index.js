@@ -56,7 +56,7 @@ let arrayNeeded = [['year','salesOrders','userLogin']];
 console.log("array needed :",arrayNeeded);
 for(let i=0;i<60;i++){
     console.log('pushing ...',[salesData[i]['year'] ,salesData[i]['count'],usersData[i]['count'] ]);
-    arrayNeeded.push([salesData[i]['date'],salesData[i]['count'],parseFloat(usersData[i]['count']/100)]);
+    arrayNeeded.push([salesData[i]['date'],salesData[i]['count'],parseFloat(usersData[i]['count'])]);
 }
 
 google.charts.load('current', {'packages':['corechart']});
@@ -69,8 +69,15 @@ function drawChart() {
   var options = {
     responsive:true,
     title: 'sales and user login graph',
-    vAxis: {title: 'sales and user logins'},
-    hAxis: {title: 'years',},
+    vAxes: {
+      0: {
+          title: 'sales axis'
+      },
+      1: {
+          title: 'user login axis'
+      }
+    },
+    hAxis: {title: "years" , direction:-1, slantedText:true, slantedTextAngle:90 },
                         
     explorer: { 
         seriesType: 'bars',
@@ -84,8 +91,8 @@ function drawChart() {
         colors: ['#981B48', '#ECA403'],
         theme:'material',
         series:{
-            0: { type: 'line' , lineWidth:4},
-            1: { type: 'bars',lineWidth: 1, pointSize: 1 },
+            0: { type: 'line' , lineWidth:4 , targetAxisIndex: 0},
+            1: { type: 'bars',lineWidth: 1, pointSize: 1 , targetAxisIndex: 1 },
         }
     };
 
